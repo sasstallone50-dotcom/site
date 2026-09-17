@@ -3,238 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grebnev_22 — Профиль</title>
+    <title>Grebnev_22 | Личная страница</title>
     <style>
-        :root {
-            --bg-color: #f0f2f5;
-            --card-bg: #ffffff;
-            --text-main: #1c1e21;
-            --text-secondary: #65676b;
-            --btn-bg: #007bff;
-            --btn-hover: #0056b3;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --link-card-bg: #f8f9fa;
-            --link-card-hover: #e9ecef;
-            --tg-color: #229ED9;
-            --ig-color: #E1306C;
-        }
-
-        body.dark-mode {
-            --bg-color: #18191a;
-            --card-bg: #242526;
-            --text-main: #e4e6eb;
-            --text-secondary: #b0b3b8;
-            --btn-bg: #2d88ff;
-            --btn-hover: #1b74e4;
-            --shadow: rgba(0, 0, 0, 0.4);
-            --link-card-bg: #3a3b3c;
-            --link-card-hover: #4e4f50;
-            --tg-color: #38b3ec;
-            --ig-color: #f7528b;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 40px 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
+        * {
             box-sizing: border-box;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--card-bg);
-            border: 1px solid var(--text-secondary);
-            color: var(--text-main);
-            padding: 8px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 14px;
+        body {
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #ffffff;
+            min-height: 100vh;
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 6px;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px var(--shadow);
+            padding: 20px;
         }
-
-        .theme-toggle:hover {
-            transform: scale(1.05);
-        }
-
-        .profile-card {
-            background-color: var(--card-bg);
-            width: 100%;
-            max-width: 380px;
-            padding: 32px 24px;
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            box-shadow: 0 8px 30px var(--shadow);
+            padding: 35px 25px;
+            max-width: 420px;
+            width: 100%;
             text-align: center;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            margin-top: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
-
         .avatar {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
-            object-position: top;
-            border: 3px solid var(--btn-bg);
-            margin-bottom: 16px;
-            box-shadow: 0 4px 12px var(--shadow);
-            background-color: #e9ecef;
+            border: 3px solid #0088cc;
+            margin-bottom: 15px;
         }
-
         h1 {
             font-size: 24px;
-            margin: 0 0 8px 0;
-            color: var(--text-main);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
-
-        .bio {
+        p.subtitle {
             font-size: 14px;
-            color: var(--text-secondary);
-            margin: 0 0 24px 0;
-            line-height: 1.5;
+            color: #d1d5db;
+            margin-bottom: 25px;
+            line-height: 1.4;
         }
-
-        .links-list {
+        .links {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-
-        .link-item {
+        .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             padding: 14px 18px;
-            background-color: var(--link-card-bg);
-            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
             font-size: 15px;
+            font-weight: 500;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.2s ease;
-            box-shadow: 0 2px 5px var(--shadow);
         }
-
-        .link-item svg {
-            flex-shrink: 0;
-        }
-
-        .link-item:hover {
-            background-color: var(--link-card-hover);
+        .btn:hover {
+            background: #0088cc;
+            border-color: #0088cc;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
         }
-
-        .link-tg-channel {
-            background-color: var(--tg-color);
-            color: #ffffff !important;
-        }
-
-        .link-tg-channel svg {
-            fill: #ffffff;
-        }
-
-        .link-tg-channel:hover {
-            opacity: 0.9;
-        }
-
-        .link-tg svg {
-            fill: var(--tg-color);
-        }
-
-        .link-ig svg {
-            fill: var(--ig-color);
-        }
-
-        .link-email {
-            background-color: var(--btn-bg);
-            color: #ffffff !important;
-        }
-
-        .link-email svg {
-            fill: #ffffff;
-        }
-
-        .link-email:hover {
-            background-color: var(--btn-hover);
+        .btn-bot {
+            background: rgba(0, 136, 204, 0.25);
+            border-color: #0088cc;
         }
     </style>
 </head>
 <body>
 
-    <button class="theme-toggle" id="themeBtn">🌙 Тёмная тема</button>
-
-    <div class="profile-card">
-        <img src="my_great.jpg" alt="Grebnev_22" class="avatar">
-
+    <div class="card">
+        <img src="my.great.jpg" alt="Grebnev_22" class="avatar" onerror="this.src='https://via.placeholder.com/110'">
         <h1>Grebnev_22</h1>
-        <p class="bio">Создаю контент и изучаю веб-разработку. Мои соцсети и контакты для связи:</p>
+        <p class="subtitle">Добро пожаловать! Здесь собраны все мои ключевые проекты, контакты и Telegram-ресурсы.</p>
 
-        <div class="links-list">
-            <a href="https://t.me/grenev22" target="_blank" class="link-item link-tg-channel">
-                <svg width="22" height="22" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .36z"/>
-                </svg>
-                <span>Telegram-канал</span>
+        <div class="links">
+            <a href="https://t.me/grebnev22_assistant_bot" target="_blank" class="btn btn-bot">
+                🤖 Запустить Telegram-бота
             </a>
-
-            <a href="https://t.me/stallone55" target="_blank" class="link-item link-tg">
-                <svg width="22" height="22" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .36z"/>
-                </svg>
-                <span>Личный Telegram (@stallone55)</span>
+            <a href="https://t.me/grenev22" target="_blank" class="btn">
+                📢 Мой Telegram-канал
             </a>
-
-            <a href="https://www.instagram.com/grebnev_22" target="_blank" class="link-item link-ig">
-                <svg width="22" height="22" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-                <span>Instagram (@grebnev_22)</span>
-            </a>
-
-            <a href="mailto:sas.stallone50@gmail.com" class="link-item link-email">
-                <svg width="22" height="22" viewBox="0 0 24 24">
-                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
-                <span>sas.stallone50@gmail.com</span>
+            <a href="mailto:sas.stallone50@gmail.com" class="btn">
+                ✉️ Написать на почту
             </a>
         </div>
     </div>
-
-    <script>
-        const themeBtn = document.getElementById('themeBtn');
-        const body = document.body;
-
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.add('dark-mode');
-            themeBtn.textContent = '☀️ Светлая тема';
-        }
-
-        themeBtn.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-
-            if (body.classList.contains('dark-mode')) {
-                themeBtn.textContent = '☀️ Светлая тема';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeBtn.textContent = '🌙 Тёмная тема';
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    </script>
 
 </body>
 </html>
